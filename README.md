@@ -2,7 +2,7 @@
 
 Control a UE5 actor in realtime with Python, Dronekit and/or PyMavlink, and Ardupilot SITL
 
-![PreviewGIF](preview_sitl_dronekit_unreal.gif)
+![PreviewGIF](media/preview_sitl_dronekit_unreal.gif)
 
 ## Requirements
 - Python Unreal TCP Relay: https://github.com/igsxf22/python_unreal_relay
@@ -59,11 +59,13 @@ If you relaunch the Unreal runtime with vehicle already airborne, the vehicle wi
 
 If you don't want to reset the SITL each time you re-launch Unreal, you can make minor changes to `bp_pythonPawn` and negate any distance the vehicle has flown away from home
 
-    > This shows the blueprint for resetting initial x, y, but doesn't reset apparent z (vehicle alt). To also reset the z to 0 or another offset at unreal launch, just subtract `location - location_in` with the entire vector and use that value in the `Set Actor Location and Rotation` node
+In UE editor, compare original blueprint with these changes: [Reset offset Blueprint](media/bp_pythonPawn_with_offset_xy.jpg)
 
-    > Instead of using the vehicle's current position in SITL to set the initial offset, you can also use `get location` node to get the location vector of another actor, like the tcpRelay. This way, you can use the tcpRelay as a new default origin for the vehicle.
-        
-    > This won't work for rotation, so if you need the vehicle facing a certain heading at start, set the yaw with dronekit, mavlink, etc.
+> This shows the blueprint for resetting initial x, y but doesn't reset apparent z (vehicle alt). To also reset the z to 0 or another offset at unreal launch, just subtract `location - location_in` with the entire vector and use that value in the `Set Actor Location and Rotation` node 
+
+> Instead of using the vehicle's current position in SITL to set the initial offset, you can also use `get location` node to get the location vector of another actor, like the tcpRelay. This way, you can use the tcpRelay as a new default origin for the vehicle.
+
+> This won't work for rotation, so if you need the vehicle facing a certain heading at start, set the yaw with dronekit, mavlink, etc.
 
 #### Control vehicle with Controller ***in work***
 - There's a few ways to do this, but focusing on simplicity and Python, I'll include basic set ups for a generic USB gaming controller and the RadioMaster Pocket using Pygame.
