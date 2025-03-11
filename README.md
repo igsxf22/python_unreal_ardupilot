@@ -10,6 +10,8 @@ Control a UE5 actor in realtime with Python, Dronekit and/or PyMavlink, and Ardu
 - ArduPilot SITL
     - Mission Planner, Docker container, anything you can access with Dronekit or PyMavlink
 
+- Optional: A game model for your aircraft
+
 
 ## Set up
 This assumes you know the basics of Unreal Engine, and can start a new project, import custom unreal assets, and are familiar with blueprints
@@ -19,4 +21,4 @@ This assumes you know the basics of Unreal Engine, and can start a new project, 
 > Later versions of Python require a small fix to dronekit:
 https://github.com/dronekit/dronekit-python/issues/1132#issuecomment-2203771945
 
-in work
+IN WORK
