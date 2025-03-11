@@ -2,6 +2,8 @@
 
 Control a UE5 actor in realtime with Python, Dronekit and/or PyMavlink, and Ardupilot SITL
 
+![PreviewGIF](preview_sitl_dronekit_unreal.gif)
+
 ## Requirements
 - Python Unreal TCP Relay: https://github.com/igsxf22/python_unreal_relay
 
