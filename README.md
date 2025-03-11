@@ -21,13 +21,13 @@ Control a UE5 actor in realtime with Python, Dronekit and/or PyMavlink, and Ardu
     - Stable MultiCopter sim
     - Stable Plane sim
 
-## Set up
+## Set up & Launch
 This assumes you know the basics of Unreal Engine, and can start a new project, import custom unreal assets, and are familiar with blueprints
 
 1. `pip install dronekit pymavlink`
 
     > Later versions of Python require a small fix to dronekit:
-    https://github.com/dronekit/dronekit-python/issues/1132#issuecomment-2203771945
+    https://github.com/dronekit/dronekit-python/issues/1132#issuecomment-2203771945<br>
     > Fix is built into the basic example in this repo
 
 2. Follow the instructions in the https://github.com/igsxf22/python_unreal_relay to download and enable the TCP plugin for Unreal and the sample tcpRelay and pythonPawn actors. 
@@ -44,3 +44,24 @@ This assumes you know the basics of Unreal Engine, and can start a new project, 
 5. Launch Unreal Engine Play-in-Editor
 
 6. Control your vehicle in Mission Planner and watch it fly around in Unreal
+
+
+### Notes
+
+1. Vehicle N, E, -D = Unreal X, Y, Z
+
+
+### Extra Setup Options
+#### Set vehicle origin in Unreal to (0, 0) at runtime, even if the vehicle is already flying around
+If you relaunch the Unreal runtime with vehicle already airborne, the vehicle will appear at its local frame distance from home. 
+
+If you don't want to reset the SITL each time you re-launch Unreal, you can make minor changes to `bp_pythonPawn` and negate any distance the vehicle has flown away from home
+
+    > This shows the blueprint for resetting initial x, y, but doesn't reset apparent z (vehicle alt). To also reset the z to 0 or another offset at unreal launch, just subtract `location - location_in` with the entire vector and use that value in the `Set Actor Location and Rotation` node
+
+    > Instead of using the vehicle's current position in SITL to set the initial offset, you can also use `get location` node to get the location vector of another actor, like the tcpRelay. This way, you can use the tcpRelay as a new default origin for the vehicle.
+        
+    > This won't work for rotation, so if you need the vehicle facing a certain heading at start, set the yaw with dronekit, mavlink, etc.
+
+#### Control vehicle with Controller ***in work***
+- There's a few ways to do this, but focusing on simplicity and Python, I'll include basic set ups for a generic USB gaming controller and the RadioMaster Pocket using Pygame.
