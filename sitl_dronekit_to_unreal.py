@@ -7,7 +7,6 @@ import time
 import math
 
 from dronekit import connect, VehicleMode, Vehicle, LocationGlobalRelative
-from pymavlink import mavutil
 
 import tcp_relay
 
@@ -17,7 +16,6 @@ This script connects to a SITL instance using Dronekit and sends vehicle data to
 The basic example is configured to match the bp_pythonPawn example in the Unreal Engine project: 
     https://github.com/igsxf22/python_unreal_relay
 """
-
 
 # Dronekit
 connection_string = 'tcp:127.0.0.1:5763'
