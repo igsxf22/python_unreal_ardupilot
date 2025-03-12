@@ -52,18 +52,15 @@ This assumes you know the basics of Unreal Engine, and can start a new project, 
 
 1. Vehicle N, E, -D = Unreal X, Y, Z
 
-
-### Extra Setup Options
-#### Set vehicle origin in Unreal to (0, 0) at runtime, even if the vehicle is already flying around
-If you relaunch the Unreal runtime with vehicle already airborne, the vehicle will appear at its local frame distance from home. 
-
-If you don't want to reset the SITL each time you re-launch Unreal, you can make minor changes to `bp_pythonPawn` and negate any distance the vehicle has flown away from home
+## Extra Setup Options
+### Set vehicle origin in Unreal to (0, 0) at runtime, even if the vehicle has moved
+If you want the vehicle to start at a certain origin and don't want to reset the SITL each time you launch Unreal, you can make minor changes to `bp_pythonPawn` and offset any distance the vehicle is away from home
 
 In UE editor, compare original blueprint with these changes: [Reset offset Blueprint](media/bp_pythonPawn_with_offset_xy.jpg)
 
-> This shows the blueprint for resetting initial x, y but doesn't reset apparent z (vehicle alt). To also reset the z to 0 or another offset at unreal launch, just subtract `location - location_in` with the entire vector and use that value in the `Set Actor Location and Rotation` node 
+ - This shows the blueprint for resetting initial x, y but doesn't reset apparent z (vehicle alt). To also reset the z to 0 or another offset at unreal launch, just subtract `location - location_in` with the entire vector and use that value in the `Set Actor Location and Rotation` node 
 
-> Instead of using the vehicle's current position in SITL to set the initial offset, you can also use `get location` node to get the location vector of another actor, like the tcpRelay. This way, you can use the tcpRelay as a new default origin for the vehicle.
+ - Instead of using the vehicle's current position in SITL to set the initial offset, you can also use `get location` node to get the location vector of another actor, like the tcpRelay. This way, you can use the tcpRelay as a new default origin for the vehicle.
 
 > This won't work for rotation, so if you need the vehicle facing a certain heading at start, set the yaw with dronekit, mavlink, etc.
 
