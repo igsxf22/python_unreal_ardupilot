@@ -74,7 +74,7 @@ Vehicle simulates a tof-sensor fixed (*NOT stabilized*) to the bottom of platfor
 Components:
 - `examples/simple_tofHeight.py`
 - `vehicles/bp_pythonPawn_tofHeight.uasset`
-- `assets/simple/bp_simpleFloor.uasset`  (*a 10x10 plane that returns Hit events to vehicle line trace*)
+- `assets/simple/bp_simpleFloor.uasset`  (*a scalable plane that returns Hit events to vehicle line trace*)
 
 ![Simple TOF Height Example](media/tof_height_running_example.jpg)
  
