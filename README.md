@@ -1,4 +1,4 @@
-# Realtime Python and Ardupilot in Unreal Engine 5
+# Realtime Dronekit-Python and Ardupilot for Unreal Engine 5
 
 Control a UE5 actor in realtime with Python, Dronekit and/or PyMavlink, and Ardupilot SITL
 
