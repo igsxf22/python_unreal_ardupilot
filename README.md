@@ -2,16 +2,18 @@
 
 Control a UE5 actor in realtime with Python, Dronekit and/or PyMavlink, and Ardupilot SITL
 
+- Ultra-minimalist with as few dependencies are possible
+- Develop ArduPilot prototypes live with Unreal Engine 5
+- Add context to SITL by cameras, terrain, height_sensors, obtructions
+- Use SITL for reinforcement learning with Unreal environments providing feedback
+
 ![PreviewGIF](media/preview_sitl_dronekit_unreal.gif)
 
 ## Requirements
 - Python Unreal TCP Relay: https://github.com/igsxf22/python_unreal_relay
-
-- Dronekit, PyMavlink (MavProxy optional)
-
+- Dronekit, PyMavlink
 - ArduPilot SITL
-    - Mission Planner, Docker container, anything you can access with Dronekit or PyMavlink
-
+    - Mission Planner, Docker container, MavProxy, any source you can access with Dronekit
 - Optional: A game model for your aircraft
 
 
