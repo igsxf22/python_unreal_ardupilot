@@ -52,6 +52,15 @@ This assumes you know the basics of Unreal Engine, and can start a new project, 
 
 1. Unreal X, Y, Z = Vehicle Local N, E, -D
 
+### Game Models
+You can remove the sphere attached to `bp_pythonPawn` and use these models as a new static mesh component
+> The simple models are just static meshes, and don't have any added functionality.
+
+#### Simple F450 Quadcopter 
+`assets/simple/SimpleF450.fbx` - To scale, minmalist model of a classic F450 Quadcopter. Red arms are forward.
+
+![SimpleF450](media/screenshot_simplef450.jpg)
+
 ## Simple Recipes
 > Whenever you change the actor that you want to control with Python, make sure you change the `Get Actor of Class` node in the `bp_tcpRelay` event graph to the class of the new actor.
 
