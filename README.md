@@ -50,15 +50,25 @@ This assumes you know the basics of Unreal Engine, and can start a new project, 
 
 ### Notes
 
-1. Vehicle N, E, -D = Unreal X, Y, Z
+1. Unreal X, Y, Z = Vehicle Local N, E, -D
+
+## Simple Recipes
+> Whenever you change the actor that you want to control with Python, make sure you change the `Get Actor of Class` node in the `bp_tcpRelay` event graph to the class of the new actor.
+
+These recipes require the core assets from (https://github.com/igsxf22/python_unreal_relay) though we'll swap out the `bp_pythonPawn` for new blueprints
+
+### Vehicle with Time-of-Flight Height Sensor
+ - `examples/simple_tofHeight.py`
+ - `vehicles/bp_pythonPawn_tofHeight.uasset`
+ - `assets/simple/bp_simpleFloor.uasset`  (*a 10x10 plane that returns Hit events to vehicle line trace*)
+
+Vehicle simulates a tof-sensor fixed (*NOT stabilized*) to the bottom of platform using a line trace aimed down from its local frame, returns distance to first object set to return hits. 
+- Default max distance is 1000cm, returns -1 if no hit
+ 
 
 ## Extra Setup Options
 ### Set vehicle origin in Unreal to (0, 0) at runtime, even if the vehicle has moved
-If you want the vehicle to start at a certain origin and don't want to reset the SITL each time you launch Unreal, you can make minor changes to `bp_pythonPawn` and offset any distance the vehicle is away from home
-
-In UE editor, compare original blueprint with these changes: [Reset offset Blueprint](media/bp_pythonPawn_with_offset_xy.jpg)
-
- - This shows the blueprint for resetting initial x, y but doesn't reset apparent z (vehicle alt). To also reset the z to 0 or another offset at unreal launch, just subtract `location - location_in` with the entire vector and use that value in the `Set Actor Location and Rotation` node 
+If you want the vehicle to start at a certain origin and don't want to reset the SITL each time you launch Unreal, you can make minor changes to `bp_pythonPawn` and offset any distance the vehicle is away from home. In UE editor, compare current blueprint with these changes: [Reset offset Blueprint](media/bp_pythonPawn_with_offset_xy.jpg). To also ignore vehicle altitude and reset to 0, use `location - location_in` with all three items.
 
  - Instead of using the vehicle's current position in SITL to set the initial offset, you can also use `get location` node to get the location vector of another actor, like the tcpRelay. This way, you can use the tcpRelay as a new default origin for the vehicle.
 
