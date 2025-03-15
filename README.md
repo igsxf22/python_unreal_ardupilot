@@ -58,13 +58,20 @@ This assumes you know the basics of Unreal Engine, and can start a new project, 
 These recipes require the core assets from (https://github.com/igsxf22/python_unreal_relay) though we'll swap out the `bp_pythonPawn` for new blueprints
 
 ### Vehicle with Time-of-Flight Height Sensor
- - `examples/simple_tofHeight.py`
- - `vehicles/bp_pythonPawn_tofHeight.uasset`
- - `assets/simple/bp_simpleFloor.uasset`  (*a 10x10 plane that returns Hit events to vehicle line trace*)
+Vehicle simulates a tof-sensor fixed (*NOT stabilized*) to the bottom of platform using a line trace aimed down from its local frame, returns distance to first object set to return hits. Default max distance is 1000cm, returns -1 if no hit.
 
-Vehicle simulates a tof-sensor fixed (*NOT stabilized*) to the bottom of platform using a line trace aimed down from its local frame, returns distance to first object set to return hits. 
-- Default max distance is 1000cm, returns -1 if no hit
+Components:
+- `examples/simple_tofHeight.py`
+- `vehicles/bp_pythonPawn_tofHeight.uasset`
+- `assets/simple/bp_simpleFloor.uasset`  (*a 10x10 plane that returns Hit events to vehicle line trace*)
+
+![Simple TOF Height Example](media/tof_height_running_example.jpg)
  
+### Vehicle with Gimbal Mount
+In work
+
+### Vehicle with Dropper
+In work
 
 ## Extra Setup Options
 ### Set vehicle origin in Unreal to (0, 0) at runtime, even if the vehicle has moved

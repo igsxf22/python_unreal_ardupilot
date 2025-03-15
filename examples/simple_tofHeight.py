@@ -11,7 +11,9 @@ from dronekit import connect, VehicleMode, Vehicle, LocationGlobalRelative
 import tcp_relay
 
 """
-SITL Dronekit to Unreal Engine - TOF Sensor Example
+SITL Dronekit to Unreal Engine - simple_tofHeight.py
+
+We simulate a Time of Flight (TOF) sensor in Unreal Engine using a line trace to detect the height above a floor
 
 Same as basic example, but we use two more fields in the msg_out: 
     fields[:6] = [x, y, z, roll, pitch, yaw] # same as basic example
