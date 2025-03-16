@@ -1,11 +1,11 @@
 # Realtime Dronekit-Python and Ardupilot for Unreal Engine 5
 
 Control a UE5 actor in realtime with Python, Dronekit and/or PyMavlink, and Ardupilot SITL
-
-- Ultra-minimalist with as few dependencies are possible
-- Develop ArduPilot prototypes live with Unreal Engine 5
+- Minimalist method to develop and test ArduPilot prototypes with Unreal Engine 5
 - Add context to SITL: cameras, terrain, height_sensors, obtructions
 - Use SITL for reinforcement learning with Unreal environments providing feedback
+
+<br>
 
 ![PreviewGIF](media/preview_sitl_dronekit_unreal.gif)
 
