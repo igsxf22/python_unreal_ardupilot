@@ -20,7 +20,7 @@ Control a UE5 actor in realtime with Python, Dronekit and/or PyMavlink, and Ardu
 
 
 ### Successfully tested 11 Mar 25 with:
-- Windows 11
+- Windows 10 and 11
 - Unreal Engine 5.5.3
 - Python 3.11
 - MissionPlanner 1.3.82
@@ -58,12 +58,17 @@ This assumes you know the basics of Unreal Engine, and can start a new project, 
 
 ### Game Models
 You can remove the sphere attached to `bp_pythonPawn` and use these models as a new static mesh component
-> The simple models are just static meshes, and don't have any added functionality.
+> The simple models are just static meshes for visualization, and don't add any functionality.
 
-#### Simple F450 Quadcopter 
-`assets/simple/SimpleF450.fbx` - To scale, minmalist model of a classic F450 Quadcopter. Red arms are forward.
+- #### 1. Simple F450 Quadcopter 
+    `assets/simple/SimpleF450.fbx` - To scale, low-poly classic F450 Quadcopter. Red arms are forward.
 
-![SimpleF450](media/screenshot_simplef450.jpg)
+    ![SimpleF450](media/screenshot_simplef450.jpg)
+
+- #### 2. Simple 1600mm Fixed Wing
+    `assets/simple/SimpleFixedWing1600.fbx` - Low-poly, 1600mm EPP-style fixed wing
+
+    ![SimpleFixedWing1600](media/screenshot_simple_fixedwing1600.jpg)
 
 ## Simple Recipes
 > Whenever you change the actor that you want to control with Python, make sure you change the `Get Actor of Class` node in the `bp_tcpRelay` event graph to the class of the new actor.
